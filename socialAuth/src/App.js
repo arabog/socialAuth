@@ -6,11 +6,16 @@ import {
 	googleProvider 
 } from './config/authMethods';
 
-// https://socialauth-a05f7.firebaseapp.com/__/auth/handler
+// // https://socialauth-a05f7.firebaseapp.com/__/auth/handler
+// https://firebase.google.com/docs/emulator-suite
+// sudo snap install ngrok
+// to start in terminal:  ngrok http -region=eu {port_number}
+
 
 import socialMediaAuth from './auth/auth';
+// import { firebase } from "./config/firebase.config"
 
-// https://developers.facebook.com/docs/development/register
+// // https://developers.facebook.com/docs/development/register
 
 
 function App() {
@@ -66,3 +71,4 @@ function App() {
 }
 
 export default App;
+

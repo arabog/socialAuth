@@ -1,25 +1,68 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { 
+	facebookProvider, 
+	githubProvider, 
+	googleProvider 
+} from './config/authMethods';
+
+// https://socialauth-a05f7.firebaseapp.com/__/auth/handler
+
+import socialMediaAuth from './auth/auth';
+
+// https://developers.facebook.com/docs/development/register
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const handleClick = async (provider) => {
+		const res = await socialMediaAuth(provider);
+
+		console.log(res)
+	}
+
+
+	return (
+		<div className="App">
+
+				<div className="signin">
+					<input 
+						type="text"
+
+						placeholder="Enter your email"
+					/>
+
+					<input 
+						type="password"
+
+						placeholder="Enter your password"
+					/>
+
+					<button>Sigin</button>
+				</div>
+
+
+				<div className="socials">
+					<button 
+						onClick={() => handleClick(googleProvider)}
+					>
+						Google
+					</button>
+
+					<button 
+						onClick={() => handleClick(githubProvider)}
+					>
+						GitHub
+					</button>
+
+					<button 
+						onClick={() => handleClick(facebookProvider )}
+					>
+						Facebook
+					</button>
+				</div>
+		</div>
+	);
 }
 
 export default App;
